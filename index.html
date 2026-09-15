@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Date Night</title>
+
+    <!-- Baskerville Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- =========================
+             WELCOME PAGE
+        ========================== -->
+
+        <section id="welcome-page" class="page">
+
+            <h1 class="date-title">
+                DATE NIGHT
+            </h1>
+
+            <div class="top-line"></div>
+
+            <p class="subtitle">
+                You pick the menu.<br>
+                I'll handle the rest.
+            </p>
+
+            <div class="bottom-line"></div>
+
+            <p class="chef">
+                - Curated By Chef Rob ♡ -
+            </p>
+
+            <button id="begin-button">
+                BEGIN
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             ENTREE PAGE
+        ========================== -->
+
+        <section id="entree-page" class="page hidden">
+
+            <button id="entree-back" class="back-button">
+                ← BACK
+            </button>
+
+            <h2 class="entree-title">
+                Select an Entrée
+            </h2>
+
+
+            <div class="entree-grid">
+
+                <div class="entree-option-wrapper">
+
+                    <button
+                        class="entree-option"
+                        id="pasta-option"
+                        data-entree="Crispy Chicken Cutlets with Pasta"
+                    >
+
+                        <span class="entree-name">
+                            Crispy Chicken Cutlets<br>
+                            with Pasta
+                        </span>
+
+                    </button>
+
+
+                    <div id="sauce-selector" class="sauce-selector hidden">
+
+                        <span class="sauce-title">
+                            Choose Your Sauce
+                        </span>
+
+                        <div class="sauce-options">
+
+                            <button
+                                class="sauce-option"
+                                data-sauce="Alfredo"
+                            >
+                                Alfredo
+                            </button>
+
+                            <button
+                                class="sauce-option"
+                                data-sauce="Marinara"
+                            >
+                                Marinara
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="entree-option"
+                    data-entree="Chicken in a Parmesan Cream Sauce with Crispy Smashed Potatoes"
+                >
+
+                    <span class="entree-name">
+                        Chicken in a Parmesan<br>
+                        Cream Sauce with<br>
+                        Crispy Smashed Potatoes
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="entree-option"
+                    data-entree="Crispy Chicken Cutlets with Cheesy Potato Au Gratin"
+                >
+
+                    <span class="entree-name">
+                        Crispy Chicken Cutlets<br>
+                        with Cheesy Potato<br>
+                        Au Gratin
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="entree-option"
+                    data-entree="Pasta and Meatballs"
+                >
+
+                    <span class="entree-name">
+                        Pasta &amp; Meatballs
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="special-request">
+
+                <label for="special-request-input">
+                    Special Request:
+                </label>
+
+                <textarea
+                    id="special-request-input"
+                    placeholder="Anything you'd like Chef Rob to know..."
+                    rows="3"
+                ></textarea>
+
+            </div>
+
+
+            <button id="entree-continue">
+                CONTINUE
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             DESSERT PAGE
+        ========================== -->
+
+        <section id="dessert-page" class="page hidden">
+
+            <button id="dessert-back" class="back-button">
+                ← BACK
+            </button>
+
+            <h2 class="dessert-title">
+                Select a Dessert
+            </h2>
+
+
+            <div class="dessert-options">
+
+                <button
+                    class="dessert-option"
+                    data-dessert="Vanilla Crème Brûlée"
+                >
+
+                    <span class="dessert-name">
+                        Vanilla Crème Brûlée
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="dessert-option"
+                    data-dessert="Vanilla Strawberry Shortcake"
+                >
+
+                    <span class="dessert-name">
+                        Vanilla Strawberry Shortcake
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="dessert-option"
+                    data-dessert="Cookie Skillet with Ice Cream"
+                >
+
+                    <span class="dessert-name">
+                        Cookie Skillet with Ice Cream
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <button id="dessert-continue">
+                CONTINUE
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             WHAT I NEED FROM YOU PAGE
+        ========================== -->
+
+        <section id="needs-page" class="page hidden">
+
+            <button id="needs-back" class="back-button">
+                ← BACK
+            </button>
+
+            <h2 class="needs-title">
+                What I Need From You:
+            </h2>
+
+
+            <div class="needs-list">
+
+                <p>
+                    <span>#1</span> Bring me my Chef Apron from home
+                </p>
+
+                <p>
+                    <span>#2</span> Sit pretty and supervise
+                </p>
+
+                <p>
+                    <span>#3</span> Drink Wine
+                </p>
+
+                <p>
+                    <span>#4</span> Eat and Enjoy the night
+                </p>
+
+            </div>
+
+
+            <button id="needs-continue">
+                CONTINUE
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             REVIEW PAGE
+        ========================== -->
+
+        <section id="review-page" class="page hidden">
+
+            <button id="review-back" class="back-button">
+                ← BACK
+            </button>
+
+            <h2 class="review-title">
+                Review and Confirm Selections
+            </h2>
+
+
+            <div class="review-selections">
+
+                <div class="review-item">
+
+                    <h3>
+                        Entrée selected:
+                    </h3>
+
+                    <p id="review-entree"></p>
+
+                </div>
+
+
+                <div class="review-item">
+
+                    <h3>
+                        Dessert selected:
+                    </h3>
+
+                    <p id="review-dessert"></p>
+
+                </div>
+
+
+                <div
+                    class="review-item review-special-request hidden"
+                    id="review-special-container"
+                >
+
+                    <h3>
+                        Special Request:
+                    </h3>
+
+                    <p id="review-special"></p>
+
+                </div>
+
+            </div>
+
+
+            <div class="review-warning">
+
+                <p>
+                    • You can go back at this point to change your selection.
+                    After you confirm, you will not be able to go back.
+                </p>
+
+            </div>
+
+
+            <button id="lock-selection">
+                LOCK IN SELECTION
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             FULL DATE NIGHT PAGE
+        ========================== -->
+
+        <section id="full-date-page" class="page hidden">
+
+            <h2 class="full-date-title">
+                Full Date Night
+            </h2>
+
+
+            <!-- CLOSE INVITE BUTTON -->
+
+            <button id="close-invite">
+                CLOSE INVITE
+            </button>
+
+
+            <!-- CENTER DIVIDER -->
+
+            <div class="date-divider"></div>
+
+
+            <!-- LEFT SIDE -->
+
+            <div class="date-left">
+
+                <div class="date-info">
+
+                    <h3>
+                        Date:
+                    </h3>
+
+                    <p>
+                        This Friday
+                    </p>
+
+                </div>
+
+
+                <div class="date-info">
+
+                    <h3>
+                        Location:
+                    </h3>
+
+                    <p>
+                        My Place
+                    </p>
+
+                </div>
+
+
+                <div class="date-info">
+
+                    <h3>
+                        Vibe:
+                    </h3>
+
+                    <p>
+                        Chill Cozy Romantic
+                    </p>
+
+                </div>
+
+
+                <div class="date-info menu-section">
+
+                    <h3>
+                        Menu Items Selected:
+                    </h3>
+
+                    <div class="menu-item">
+
+                        <strong>
+                            Main:
+                        </strong>
+
+                        <p id="final-entree"></p>
+
+                    </div>
+
+
+                    <div class="menu-item">
+
+                        <strong>
+                            Dessert:
+                        </strong>
+
+                        <p id="final-dessert"></p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="date-right">
+
+                <h3 class="after-dinner-title">
+                    After Dinner:
+                </h3>
+
+
+                <ul class="after-dinner-list">
+
+                    <li>
+                        Watch TV
+                    </li>
+
+                    <li>
+                        Massage
+                    </li>
+
+                    <li>
+                        .....
+                    </li>
+
+                    <li>
+                        Shower
+                    </li>
+
+                    <li>
+                        Sleep
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SEE YOU SOON PAGE
+        ========================== -->
+
+        <section id="goodbye-page" class="page hidden">
+
+            <h1 class="goodbye-title">
+                See you Soon ; )
+            </h1>
+
+
+            <button id="close-page">
+                CLOSE PAGE
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
