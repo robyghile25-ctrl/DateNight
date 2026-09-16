@@ -54,6 +54,8 @@ let selectedEntree = "";
 
 let selectedSauce = "";
 
+let selectedChicken = "";
+
 let selectedDessert = "";
 
 let specialRequest = "";
@@ -73,14 +75,29 @@ entreeBack.addEventListener("click", function () {
 
 
 // ------------------------------
-// SAUCE SELECTOR
+// PASTA SAUCE SELECTOR
 // ------------------------------
 
 const pastaOption = document.getElementById("pasta-option");
 
 const sauceSelector = document.getElementById("sauce-selector");
 
-const sauceOptions = document.querySelectorAll(".sauce-option");
+const sauceOptions = document.querySelectorAll(
+    "#sauce-selector .sauce-option"
+);
+
+
+// ------------------------------
+// COUSCOUS CHICKEN SELECTOR
+// ------------------------------
+
+const couscousOption = document.getElementById("couscous-option");
+
+const chickenSelector = document.getElementById("chicken-selector");
+
+const chickenOptions = document.querySelectorAll(
+    "#chicken-selector .sauce-option"
+);
 
 
 // ------------------------------
@@ -91,6 +108,8 @@ entreeOptions.forEach(function (option) {
 
     option.addEventListener("click", function () {
 
+        // Pasta with sauce selection.
+
         if (option === pastaOption) {
 
             entreeOptions.forEach(function (item) {
@@ -99,11 +118,33 @@ entreeOptions.forEach(function (option) {
 
             pastaOption.classList.add("selected");
 
+            chickenSelector.classList.add("hidden");
+
             sauceSelector.classList.remove("hidden");
 
             return;
         }
 
+
+        // Chicken with lemon herb couscous.
+
+        if (option === couscousOption) {
+
+            entreeOptions.forEach(function (item) {
+                item.classList.remove("selected");
+            });
+
+            couscousOption.classList.add("selected");
+
+            sauceSelector.classList.add("hidden");
+
+            chickenSelector.classList.remove("hidden");
+
+            return;
+        }
+
+
+        // All other entrées.
 
         entreeOptions.forEach(function (item) {
             item.classList.remove("selected");
@@ -115,13 +156,19 @@ entreeOptions.forEach(function (option) {
 
         selectedSauce = "";
 
+        selectedChicken = "";
+
+        sauceSelector.classList.add("hidden");
+
+        chickenSelector.classList.add("hidden");
+
     });
 
 });
 
 
 // ------------------------------
-// SAUCE SELECTION
+// PASTA SAUCE SELECTION
 // ------------------------------
 
 sauceOptions.forEach(function (option) {
@@ -133,10 +180,41 @@ sauceOptions.forEach(function (option) {
 
         selectedSauce = option.dataset.sauce;
 
+        selectedChicken = "";
+
         selectedEntree = pastaOption.dataset.entree;
 
 
+        chickenSelector.classList.add("hidden");
+
         sauceSelector.classList.add("hidden");
+
+    });
+
+});
+
+
+// ------------------------------
+// COUSCOUS CHICKEN SELECTION
+// ------------------------------
+
+chickenOptions.forEach(function (option) {
+
+    option.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+
+        selectedChicken = option.dataset.chicken;
+
+        selectedSauce = "";
+
+        selectedEntree = couscousOption.dataset.entree;
+
+
+        sauceSelector.classList.add("hidden");
+
+        chickenSelector.classList.add("hidden");
 
     });
 
@@ -168,12 +246,27 @@ entreeContinue.addEventListener("click", function () {
     }
 
 
+    // Make sure pasta has a sauce.
+
     if (
         selectedEntree === "Crispy Chicken Cutlets with Pasta"
         && selectedSauce === ""
     ) {
 
         alert("Please choose a sauce first.");
+
+        return;
+    }
+
+
+    // Make sure couscous has a chicken preparation.
+
+    if (
+        selectedEntree === "Chicken with Lemon Herb Couscous"
+        && selectedChicken === ""
+    ) {
+
+        alert("Please choose your chicken first.");
 
         return;
     }
@@ -266,9 +359,25 @@ needsBack.addEventListener("click", function () {
 
 needsContinue.addEventListener("click", function () {
 
+    let reviewEntree = selectedEntree;
+
+
+    if (selectedSauce !== "") {
+
+        reviewEntree += " — " + selectedSauce;
+
+    }
+
+
+    if (selectedChicken !== "") {
+
+        reviewEntree += " — " + selectedChicken;
+
+    }
+
+
     document.getElementById("review-entree").textContent =
-        selectedEntree +
-        (selectedSauce !== "" ? " — " + selectedSauce : "");
+        reviewEntree;
 
 
     document.getElementById("review-dessert").textContent =
@@ -333,9 +442,21 @@ lockSelection.addEventListener("click", async function () {
 
     // Create the final entrée name.
 
-    const finalEntree =
-        selectedEntree +
-        (selectedSauce !== "" ? " — " + selectedSauce : "");
+    let finalEntree = selectedEntree;
+
+
+    if (selectedSauce !== "") {
+
+        finalEntree += " — " + selectedSauce;
+
+    }
+
+
+    if (selectedChicken !== "") {
+
+        finalEntree += " — " + selectedChicken;
+
+    }
 
 
     // Create the information that will be sent to Formspree.
